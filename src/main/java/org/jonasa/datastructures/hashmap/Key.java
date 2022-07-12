@@ -4,9 +4,11 @@ import java.util.Objects;
 
 public class Key<T> {
     private final T key;
+    private final int hashCode;
 
     public Key(T key) {
         this.key = key;
+        this.hashCode = Objects.hash(key);
     }
 
     public T getKey() {
@@ -23,6 +25,6 @@ public class Key<T> {
 
     @Override
     public int hashCode() {
-        return Objects.hash(key);
+        return hashCode;
     }
 }

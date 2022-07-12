@@ -5,10 +5,12 @@ import java.util.Objects;
 public class Entry<T, U> {
     private final Key<T> key;
     private Value<U> value;
+    private final int hashCode;
 
     public Entry(Key<T> key, Value<U> value) {
         this.key = key;
         this.value = value;
+        this.hashCode = key.hashCode();
     }
 
     public Key<T> getKey() {
@@ -33,6 +35,6 @@ public class Entry<T, U> {
 
     @Override
     public int hashCode() {
-        return Objects.hash(key);
+        return hashCode;
     }
 }
